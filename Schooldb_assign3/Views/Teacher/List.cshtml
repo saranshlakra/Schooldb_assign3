@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Schooldb_assign3.Models.teachers>
+@{
+    ViewBag.Title = "List";
+}
+<link href="~/sol" rel="stylesheet" type="text/css" />
+
+
+<h2>Teachers List is here</h2>
+<div id="count">There are @Model.Count() teachers in this list</div>
+<div>
+    <!-- info: from to where -->
+    <form action="/teacher/list" method="get">
+        <input type="text" name="teacherInfo" placeholder="write your teacher's' name here" id="searchbar" />
+        <input type="submit" value="Search" id="btn" />
+
+    </form>
+    <!-- when type a teacher name in the search bar we will send that name request to the browser
+        it will converted in the query string using teacherInfo-->
+</div>
+<div>
+    @{ // server instructions
+        foreach (Schooldb_assign3.Models.teachers teacher in Model)
+        {
+            // it will loop through all the items that is teacher name here
+            <div>
+                <!-- using a tag and href we can make it a link to check info about that particular item by provinding id in url-->
+                <a href="/teacher/show/@teacher.teacherid"> @teacher.teacherfname @teacher.teacherlname</a>
+                <!-- we can also use a string that can be called url to give url in href-->
+            </div>
+        }
+    }
+
+</div>

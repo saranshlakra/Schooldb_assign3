@@ -11,6 +11,7 @@ namespace Schooldb_assign3.Models
         public int teacherid { get; set; }
         public string teacherfname { get; set; }
         public string teacherlname { get; set; }
+        public string salary { get; set; }
 
     }
 }

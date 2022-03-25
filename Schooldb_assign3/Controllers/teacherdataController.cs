@@ -112,6 +112,7 @@ namespace Schooldb_assign3.Controllers
                 selectedteacher.teacherid = Convert.ToInt32(ResultSet["teacherid"]);
                 selectedteacher.teacherfname = ResultSet["teacherfname"].ToString();
                 selectedteacher.teacherlname = ResultSet["teacherlname"].ToString();
+                selectedteacher.salary = ResultSet["salary"].ToString();
 
             }
 

@@ -19,6 +19,7 @@ namespace Schooldb_assign3.Controllers
         public ActionResult List( string teacherInfo)
             // List(....) name that we give in our form
         {
+
             //get teahcer
             //connect to db layer
             //return the teachers to the view Teacher List.csHtml

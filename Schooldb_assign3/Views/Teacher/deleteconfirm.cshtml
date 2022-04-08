@@ -5,13 +5,18 @@
     ViewBag.Title = "Show";
 }
 
-<h2>Show Teacher Details</h2>
-<a href="/Teacher/deleteconfirm/@Model.teacherid">Delete Teacher</a>
+<h2>Are you sure you want delete?</h2>
+
 
 <div>First Name : @Model.teacherfname</div>
 <div>Last Name : @Model.teacherlname</div>
 <div>Teacher ID : @Model.teacherid</div>
 <div>Teacher Salary: @Model.salary</div>
+
+<form method="post" action="/Teacher/delete/@Model.teacherid">
+    <input type="submit" value="Delete" style="background-color:red; color: white;" />
+
+</form>
 
 
 

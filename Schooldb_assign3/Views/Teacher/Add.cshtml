@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Teacher</h2>
+
+<form method="post" action="/Teacher/Addnew">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="teachersFName" id="fname" />
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input type="text" name="teachersLName" id="lname" />
+    </div>
+    <div>
+        <label>Salary</label>
+        <input type="number" name="salary" id="salary" />
+    </div>
+    <div>
+        <input type="submit" value="Add a new teacher" onclick="checkDetails();" id="button" />
+    </div>
+</form>
+
+<script language="javascript" type="text/javascript">
+
+    var tFName, tLName, tSalary;
+    function checkDetails() {
+        tFName = document.getElementById("fname");
+        tLName = document.getElementById("lname");
+        tSalary = document.getElementById("salary");
+        //console.log(tFName); // check
+        if (tFName.value === '' || tLName === '' || tSalary === '') {
+
+            alert("Please enter valid details");
+            
+            return false; // it stop code for further execution
+
+        }
+        // return true;
+    }
+    window.onload = function () { // to check the connection
+        //alert("hello")
+    }
+</script>
+
+
+
+
+
+
+

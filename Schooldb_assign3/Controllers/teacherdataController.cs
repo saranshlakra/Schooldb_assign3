@@ -123,6 +123,66 @@ namespace Schooldb_assign3.Controllers
             return selectedteacher;
 
         }
+        /// <summary>
+        /// Adding new teachers to db
+        /// <paramref name="NewTeacher"/> New Teachers info that I want to add
+        /// </summary>
+        public string AddTeacher(teachers NewTeacher)
+        {
 
-       }
+            //creating connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //opeming the connection between the server and db
+            Conn.Open();
+
+            //new command for our db
+            MySqlCommand cmd = Conn.CreateCommand();
+            
+                string sqlQuery = "insert into teachers (teacherfname, teacherlname, salary) values (@teacherfname, @teacherlname, @salary)"; //these are keys
+
+                cmd.CommandText = sqlQuery;
+                cmd.Parameters.AddWithValue("@teacherfname", NewTeacher.teacherfname);
+                cmd.Parameters.AddWithValue("@teacherlname", NewTeacher.teacherlname);
+                cmd.Parameters.AddWithValue("@salary", NewTeacher.salary);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            
+            Conn.Close();
+
+            return "Success";
+            
+        }
+
+        /// <summary>
+        /// Here we are deleting the teacher from our db
+        /// </summary>
+        /// <param name="teacherid">Primary key of teacher to get teacher</param>
+        public void DeleteTeacher(int teacherid)
+        {
+
+            //creating connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //opeming the connection between the server and db
+            Conn.Open();
+
+            //new command for our db
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            // sql query
+
+            string SqlQuery = "delete from teachers where teacherid = @id";
+            cmd.Parameters.AddWithValue("@id", teacherid);
+            cmd.CommandText = SqlQuery;
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+        }
+
+       
+
+    }
     }

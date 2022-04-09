@@ -31,12 +31,13 @@
         tLName = document.getElementById("lname");
         tSalary = document.getElementById("salary");
         //console.log(tFName); // check
-        if (tFName.value === '' || tLName === '' || tSalary === '') { // it will check for teachers first, last name and salary
+        if (tFName.value === '' || tLName === '') { // it will check for teachers first, last name and salary
 
             alert("Please enter valid details");
             event.preventDefault() // it stop code for further execution
             
         }
+
     }
     window.onload = function () { // to check the connection
         //alert("hello")

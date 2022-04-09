@@ -72,6 +72,7 @@ namespace Schooldb_assign3.Controllers
                 Theteachers.teacherid = Convert.ToInt32(ResultSet["teacherid"]);
                 Theteachers.teacherfname = ResultSet["teacherfname"].ToString();
                 Theteachers.teacherlname = ResultSet["teacherlname"].ToString();
+                Theteachers.hiredate = ResultSet["hiredate"].ToString();
 
 
                 //it will add the teachers name in the empty list
@@ -113,6 +114,7 @@ namespace Schooldb_assign3.Controllers
                 selectedteacher.teacherfname = ResultSet["teacherfname"].ToString();
                 selectedteacher.teacherlname = ResultSet["teacherlname"].ToString();
                 selectedteacher.salary = ResultSet["salary"].ToString();
+                selectedteacher.hiredate = ResultSet["hiredate"].ToString();
 
             }
 
@@ -181,8 +183,7 @@ namespace Schooldb_assign3.Controllers
 
             Conn.Close();
         }
-
-       
+             
 
     }
     }

@@ -51,13 +51,15 @@ namespace Schooldb_assign3.Controllers
 
         //POST: /Teacher/Addnew
         [HttpPost]
-        public ActionResult Addnew(string teachersFName, string teachersLName, string salary)
+        public ActionResult Addnew(string teachersFName, string teachersLName, string salary, string hireDate)
         {
 
             teachers NewTeacher = new teachers();
             NewTeacher.teacherfname = teachersFName;
             NewTeacher.teacherlname = teachersLName;
             NewTeacher.salary = salary;
+            NewTeacher.hiredate = hireDate;
+
 
 
             teacherdataController controller = new teacherdataController();

@@ -183,7 +183,33 @@ namespace Schooldb_assign3.Controllers
 
             Conn.Close();
         }
-             
+             /// <summary>
+             /// It will update the teacher details in the system
+             /// </summary>
+             /// <param name="teacherid">teachers primary key to update the details</param>
+             /// <param name="TeacherInfo"></param>
+        public void UpdateTeacher (int teacherid, teachers TeacherInfo)
+        {
+            //creating connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //opeming the connection between the server and db
+            Conn.Open();
+
+            //new command for our db
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            // SQL
+            cmd.CommandText = "update teachers set teacherfname=@teacherfname, teacherlname=@teacherlname, salary=@salary where teacherid=@teacherid";
+
+            cmd.Parameters.AddWithValue("@teacherfname", TeacherInfo.teacherfname);
+            cmd.Parameters.AddWithValue("@teacherlname", TeacherInfo.teacherlname);
+            cmd.Parameters.AddWithValue("@salary", TeacherInfo.salary);
+            cmd.Parameters.AddWithValue("@teacherid", teacherid);
+            cmd.ExecuteNonQuery();
+
+            Conn.Close ();
+        }
 
     }
     }

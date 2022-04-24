@@ -98,5 +98,48 @@ namespace Schooldb_assign3.Controllers
             controller.DeleteTeacher(id); // ti ll find the teacher delete method
             return RedirectToAction("List"); // it will return the updated teachers list
         }
+
+       //GET: /teachers/Edit/{id}
+       /// <summary>
+       /// this will return the webpage of the teacher
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
+       public ActionResult Edit(int id)
+        {
+            // Passing info to the view so that we can show
+
+            teacherdataController controller = new teacherdataController();
+            // data type 
+            teachers selectedteacher = controller.Findteacher(id);
+
+            return View(selectedteacher);
+        }
+
+        // post: /teachers/Update/{id}
+        /// <summary>
+        /// this will actually update the teacher details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [HttpPost]
+        public ActionResult Update(int id, string teachersFName, string teachersLName, string salary, string hireDate)
+        {
+           // Debug.writeline()
+
+            teachers TeacherInfo = new teachers();
+            TeacherInfo.teacherfname = teachersFName;
+            TeacherInfo.teacherlname = teachersLName;
+            TeacherInfo.salary = salary;
+            TeacherInfo.hiredate = hireDate;
+
+            //Updating the teacher info
+            teacherdataController Controller = new teacherdataController();
+            Controller.UpdateTeacher(id, TeacherInfo);
+
+            // it will return to the edited teacher
+            return RedirectToAction("/show/" + id);  
+        }
     }
 }
